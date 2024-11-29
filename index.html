@@ -15,39 +15,25 @@
     <script src="https://unpkg.com/htmx.org@1.9.2"></script>
 </head>
 <body class="bg-gray-900 text-white w-full flex flex-col items-center">
-    <!-- absolute divs -->
-    <div class="scrolling-div-container">
-        <!-- radial gradient cover div -->
-        <div class="scrolling-div-container-radial-cover"></div>
 
-        <div class="scrolling-div div1">
-            <div class="div-1-img-1"></div>
-            <div class="div-1-img-2"></div>
-            <div class="div-1-img-3"></div>
-            <div class="div-1-img-4"></div>
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+        <div class="text-center">
+            <div class="loader-text text-4xl font-extrabold text-white">Loading...</div>
         </div>
-        <div class="scrolling-div div2">
-            <div class="div-2-img-1"></div>
-            <div class="div-2-img-2"></div>
-            <div class="div-2-img-3"></div>
-            <div class="div-2-img-4"></div>
-        </div>
-        <div class="scrolling-div div3">
-            <div class="div-3-img-1"></div>
-            <div class="div-3-img-2"></div>
-            <div class="div-3-img-3"></div>
-            <div class="div-3-img-4"></div>
-        </div>
-        <div class="scrolling-div div4">
-            <div class="div-4-img-1"></div>
-            <div class="div-4-img-2"></div>
-            <div class="div-4-img-3"></div>
-            <div class="div-4-img-4"></div>
-        </div>
+    </div>
+    <!-- absolute divs -->
+    <div class="scrolling-div-container"
+        hx-get="./divs.html" hx-trigger="load"
+    >
+        
     </div>
 
     <header class="flex justify-between items-center py-6 w-2/3 z-10">
-        <h1 class="text-2xl font-bold">CringeAF Consulting</h1>
+        <div>
+            <h1 class="text-2xl font-bold">CringeAF Consulting</h1>
+            <!-- <p>every single corporate website</p> -->
+        </div>
         <nav>
             <ul class="flex space-x-6">
                 <li><a href="#services" class="hover:underline">Services</a></li>
@@ -57,42 +43,39 @@
         </nav>
     </header>
 
-    <section id="hero" class="h-96 py-96 mt-24 flex flex-col justify-center items-center text-center w-2/3 border-2 rounded-lg border-slate-700 bg-gray-800">
+    <section id="hero" class="h-svh w-full md:w-2/3 md:h-96 md:py-96
+    mt-24 flex flex-col justify-center items-center text-center border-2 border-slate-700">
         <h2 class="text-4xl font-extrabold mb-4">Helping Your Business Grow</h2>
         <p class="text-lg mb-8">Tailored consulting solutions for your unique needs.</p>
-        <button id="learn-more" class="px-6 py-3 bg-slate-600 rounded-lg hover:bg-slate-700">Give us money</button>
+        <button id="learn-more" class="px-6 py-3 bg-slate-600 hover:bg-slate-700 shadow-lg shadow-cyan-500/50 hover:shadow-indigo-500/50">Give us money</button>
     </section>
 
-    <section id="about" class="p-12 bg-gray-600 w-2/3">
-        <h2 class="text-3xl font-bold mb-6">About us</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-gray-700 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">Service 1</h3>
-                <p>We're a small team of experts who specialize in helping businesses grow.</p>
-            </div>
-            <div class="p-6 bg-gray-700 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">Service 2</h3>
-                <p>Detailed description of the second service.</p>
-            </div>
-            <div class="p-6 bg-gray-700 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">Service 3</h3>
-                <p>Detailed description of the third service.</p>
-            </div>
-        </div>
+    <section id="customers"
+        class="p-12 bg-gray-600 w-2/3 mb-24"
+        hx-get="./customers.html"
+        hx-trigger="intersect" 
+    >
+        <!-- I'm a prefetch development god -->
     </section>
 
-    <section id="services" class="p-12 bg-gray-800 w-2/3">
+    <section id="about" class="p-12 bg-gray-600 w-2/3 mb-24"
+        hx-get="./about.html" hx-trigger="intersect"
+    >
+        
+    </section>
+
+    <section id="services" class="p-12 bg-gray-800 w-2/3 mb-24">
         <h2 class="text-3xl font-bold mb-6">Our Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-gray-700 rounded-lg">
+            <div class="p-6 bg-gray-700 ">
                 <h3 class="text-xl font-semibold mb-4">Service 1</h3>
                 <p>Detailed description of the first service.</p>
             </div>
-            <div class="p-6 bg-gray-700 rounded-lg">
+            <div class="p-6 bg-gray-700 ">
                 <h3 class="text-xl font-semibold mb-4">Service 2</h3>
                 <p>Detailed description of the second service.</p>
             </div>
-            <div class="p-6 bg-gray-700 rounded-lg">
+            <div class="p-6 bg-gray-700 ">
                 <h3 class="text-xl font-semibold mb-4">Service 3</h3>
                 <p>Detailed description of the third service.</p>
             </div>
@@ -102,15 +85,15 @@
     <section id="contact" class="p-12 bg-gray-500 w-2/3 mb-24">
         <h2 class="text-3xl font-bold mb-6">Contact</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-gray-700 rounded-lg">
+            <div class="p-6 bg-gray-700 ">
                 <h3 class="text-xl font-semibold mb-4">Service 1</h3>
                 <p>Detailed description of the first service.</p>
             </div>
-            <div class="p-6 bg-gray-700 rounded-lg">
+            <div class="p-6 bg-gray-700 ">
                 <h3 class="text-xl font-semibold mb-4">Service 2</h3>
                 <p>Detailed description of the second service.</p>
             </div>
-            <div class="p-6 bg-gray-700 rounded-lg">
+            <div class="p-6 bg-gray-700 ">
                 <h3 class="text-xl font-semibold mb-4">Service 3</h3>
                 <p>Detailed description of the third service.</p>
             </div>
@@ -122,12 +105,28 @@
     </footer>
 
     <script>
+        // GSAP Loader Animation
+        window.addEventListener('load', () => {
+            // Loader fade out
+            gsap.to("#loader", { opacity: 0, duration: 1, delay: 0.5, onComplete: () => {
+                document.getElementById("loader").style.display = "none";
+            }});
+
+            // Animate header and hero content after loader disappears
+            gsap.to("header", { opacity: 1, y: 0, duration: 1, delay: 1 });
+            gsap.to("#hero", { opacity: 1, y: 0, duration: 1, delay: 1.5 });
+            gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1, delay: 1.5 });
+            gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 1 });
+            // gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
+            // gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+            gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1.5 });
+        });
         // GSAP animations demo
-        gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
-        gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
-        gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1 });
+        // gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
+        // gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+        // gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1 });
         // handle all sections
-        const sectionsList = ["#about", "#services", "#contact"];
+        const sectionsList = ["#customers", "#about", "#services", "#contact"];
         function animateSection(section) {
             gsap.from(section, {
             scrollTrigger: {
@@ -144,10 +143,14 @@
 
         sectionsList.forEach(animateSection);
 
-        // set up some htmx later
-        document.getElementById('learn-more').addEventListener('click', () => {
-            // no
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('learn-more').addEventListener('click', () => {
+                console.log('clicked');
+            });
+            // something like this
+            // document.body.classList.remove('load');
         });
+
     </script>
 </body>
 </html>
