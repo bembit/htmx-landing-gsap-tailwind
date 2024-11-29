@@ -1,0 +1,235 @@
+/* div scrolling */
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0) skewY(-10deg);
+    }
+    50% {
+        transform: translateY(-75px) skewY(-10deg);
+    }
+    100% {
+        transform: translateY(0) skewY(-10deg);
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(0) skewY(-10deg);
+    }
+    50% {
+        transform: translateY(75px) skewY(-10deg);
+    }
+    100% {
+        transform: translateY(0) skewY(-10deg);
+    }
+}
+
+.scrolling-div-container {
+    position: absolute;
+    top: 0;
+    /* background-image: linear-gradient(180deg, #4fe1952a 0%, #63c2eb2d 35%, #5bcfc738 70%, #4fe19536 100%); */
+    background-image: linear-gradient(180deg, #2538e02a 0%, #e01ad02d 35%, #eef11638 70%, #e2193b36 100%);
+    width: 100%;
+    /* min-width: 800px; */
+    height: 100svh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden; 
+    background-size: cover;
+    opacity: .25;
+    /* margin-bottom: var(--margin-xl); */
+    filter: blur(1px);
+}
+
+.scrolling-div-container-radial-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    height: 100%;
+    /* background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 25%, rgb(0, 0, 0) 95%); */
+    background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 25%, rgb(0, 0, 0) 95%);
+    /* slightly darker maybe? */
+    /* background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.486) 35%, rgb(0, 0, 0) 95%); */
+}
+
+@media screen and (max-width: 800px) {
+    .scrolling-div-container {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 751px) {
+    .scrolling-div-container-radial-cover {
+        display: none;
+    }
+    .scrolling-div-container .scrolling-div.div1 {
+        display: none;
+    }
+    .scrolling-div-container .scrolling-div.div4 {
+        display: none;
+    }
+}
+
+/* this could be split to 1-2-3, and given individual animation timers */
+.scrolling-div {
+    width: 100%;
+    height: auto;
+    background-color: #e0e0e0;
+    transform: skewY(-10deg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    filter: grayscale(25%) sepia(100%) hue-rotate(90deg);
+}
+
+.div1 {
+    background-color: rgba(24, 170, 192, 0.094);
+    background-size: center;
+    opacity: .5;
+    animation: scrollUp 46s ease-in-out infinite;
+}
+
+.div2 {
+    background-color: rgba(78, 205, 197, 0.094);
+    animation: scrollDown 77s ease-in-out infinite; 
+    background-size: cover;
+    opacity: .5;
+}
+.div3 {
+    background-color: rgba(26, 83, 92, 0.094);
+    background-size: cover;
+    opacity: .5;
+    animation: scrollUp 56s ease-in-out infinite;
+}
+.div4 {
+    background-color: rgba(0, 184, 147, 0.094);
+    animation: scrollDown 66s ease-in-out infinite; 
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-1-img-1 {
+    height: 300px;
+    background-image: url('./img/1.avif');
+    background-size: cover;
+    opacity: .5;
+}
+.div-1-img-2 {
+    height: 300px;
+    background-image: url('./img/ws.jpg');
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-1-img-3 {
+    height: 300px;
+    background-image: url('./img/3.avif');
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-1-img-4 {
+    height: 500px;
+    background-image: url('./img/4.avif');
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-2-img-1 {
+    height: 300px;
+    background-image: url('./img/ws2.jpg');
+
+    background-size: cover;
+    opacity: .5;
+}
+.div-2-img-2 {
+    height: 300px;
+    background-image: url('./img/3.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-2-img-3 {
+    height: 300px;
+    background-image: url('./img/2.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-2-img-4 {
+    height: 300px;
+    background-image: url('./img/ws5.jpg');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-3-img-1 {
+    height: 300px;
+    background-image: url('./img/2.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+.div-3-img-2 {
+    height: 300px;
+    background-image: url('./img/3.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-3-img-3 {
+    height: 300px;
+    background-image: url('./img/ws3.jpg');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-3-img-4 {
+    height: 300px;
+    background-image: url('./img/4.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-4-img-1 {
+    height: 300px;
+    background-image: url('./img/4.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+.div-4-img-2 {
+    height: 300px;
+    background-image: url('./img/ws5.jpeg');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-4-img-3 {
+    height: 500px;
+    background-image: url('./img/3.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+.div-4-img-4 {
+    height: 300px;
+    background-image: url('./img/2.avif');
+
+    background-size: cover;
+    opacity: .5;
+}
+
+/*  */

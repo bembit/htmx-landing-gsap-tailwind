@@ -4,17 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelance Consulting</title>
+    <link rel="stylesheet" href="./styles.css">
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- HTMX for interactivity -->
+    <!-- Trigger for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.9.2"></script>
 </head>
 <body class="bg-gray-900 text-white w-full flex flex-col items-center">
+    <!-- absolute divs -->
+    <div class="scrolling-div-container">
+        <!-- radial gradient cover div -->
+        <div class="scrolling-div-container-radial-cover"></div>
 
-    <header class="flex justify-between items-center py-6 w-2/3">
-        <h1 class="text-3xl font-bold">Freelance Consulting</h1>
+        <div class="scrolling-div div1">
+            <div class="div-1-img-1"></div>
+            <div class="div-1-img-2"></div>
+            <div class="div-1-img-3"></div>
+            <div class="div-1-img-4"></div>
+        </div>
+        <div class="scrolling-div div2">
+            <div class="div-2-img-1"></div>
+            <div class="div-2-img-2"></div>
+            <div class="div-2-img-3"></div>
+            <div class="div-2-img-4"></div>
+        </div>
+        <div class="scrolling-div div3">
+            <div class="div-3-img-1"></div>
+            <div class="div-3-img-2"></div>
+            <div class="div-3-img-3"></div>
+            <div class="div-3-img-4"></div>
+        </div>
+        <div class="scrolling-div div4">
+            <div class="div-4-img-1"></div>
+            <div class="div-4-img-2"></div>
+            <div class="div-4-img-3"></div>
+            <div class="div-4-img-4"></div>
+        </div>
+    </div>
+
+    <header class="flex justify-between items-center py-6 w-2/3 z-10">
+        <h1 class="text-2xl font-bold">CringeAF Consulting</h1>
         <nav>
             <ul class="flex space-x-6">
                 <li><a href="#services" class="hover:underline">Services</a></li>
@@ -24,18 +57,18 @@
         </nav>
     </header>
 
-    <section id="hero" class="h-screen flex flex-col justify-center items-center text-center w-2/3">
+    <section id="hero" class="h-96 py-96 mt-24 flex flex-col justify-center items-center text-center w-2/3 border-2 rounded-lg border-slate-700 bg-gray-800">
         <h2 class="text-4xl font-extrabold mb-4">Helping Your Business Grow</h2>
         <p class="text-lg mb-8">Tailored consulting solutions for your unique needs.</p>
-        <button id="learn-more" class="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700">Learn More</button>
+        <button id="learn-more" class="px-6 py-3 bg-slate-600 rounded-lg hover:bg-slate-700">Give us money</button>
     </section>
 
     <section id="about" class="p-12 bg-gray-600 w-2/3">
-        <h2 class="text-3xl font-bold mb-6">Our Services</h2>
+        <h2 class="text-3xl font-bold mb-6">About us</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="p-6 bg-gray-700 rounded-lg">
                 <h3 class="text-xl font-semibold mb-4">Service 1</h3>
-                <p>Detailed description of the first service.</p>
+                <p>We're a small team of experts who specialize in helping businesses grow.</p>
             </div>
             <div class="p-6 bg-gray-700 rounded-lg">
                 <h3 class="text-xl font-semibold mb-4">Service 2</h3>
@@ -66,8 +99,8 @@
         </div>
     </section>
 
-    <section id="contact" class="p-12 bg-gray-700 w-2/3">
-        <h2 class="text-3xl font-bold mb-6">Our Services</h2>
+    <section id="contact" class="p-12 bg-gray-500 w-2/3 mb-24">
+        <h2 class="text-3xl font-bold mb-6">Contact</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="p-6 bg-gray-700 rounded-lg">
                 <h3 class="text-xl font-semibold mb-4">Service 1</h3>
@@ -84,19 +117,36 @@
         </div>
     </section>
 
-    <footer class="text-center bg-gray-800 w-full">
-        <p>&copy; 2024 Freelance Consulting. All rights reserved.</p>
+    <footer class="text-center p-6 bg-gray-800 w-full">
+        <p>&copy; 2024 Freelance Consulting. All rights reserved. Writing Tailwind sucks.</p>
     </footer>
 
     <script>
-        // GSAP animation for hero section
+        // GSAP animations demo
         gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
         gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
         gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1 });
+        // handle all sections
+        const sectionsList = ["#about", "#services", "#contact"];
+        function animateSection(section) {
+            gsap.from(section, {
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%", // Trigger when top of #services reaches 80% of viewport
+                toggleActions: "play none none none" // Play only once
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.3 // Stagger animation between each element
+        });
+        }
 
-        // HTMX example for a button that dynamically loads content
+        sectionsList.forEach(animateSection);
+
+        // set up some htmx later
         document.getElementById('learn-more').addEventListener('click', () => {
-            alert('Here we could load more content dynamically!');
+            // no
         });
     </script>
 </body>
