@@ -5,7 +5,7 @@
         transform: translateY(0) skewY(-10deg);
     }
     50% {
-        transform: translateY(-200px) skewY(-10deg);
+        transform: translateY(-75px) skewY(-10deg);
     }
     100% {
         transform: translateY(0) skewY(-10deg);
@@ -17,7 +17,7 @@
         transform: translateY(0) skewY(-10deg);
     }
     50% {
-        transform: translateY(200px) skewY(-10deg);
+        transform: translateY(75px) skewY(-10deg);
     }
     100% {
         transform: translateY(0) skewY(-10deg);
@@ -27,10 +27,11 @@
 .scrolling-div-container {
     position: absolute;
     top: 0;
-    background-image: linear-gradient(180deg, #4fe1952a 0%, #63c2eb2d 35%, #5bcfc738 70%, #4fe19536 100%);
+    /* background-image: linear-gradient(180deg, #4fe1952a 0%, #63c2eb2d 35%, #5bcfc738 70%, #4fe19536 100%); */
+    background-image: linear-gradient(180deg, #2538e02a 0%, #e01ad02d 35%, #eef11638 70%, #e2193b36 100%);
     width: 100%;
-    min-width: 800px;
-    height: 1200px;
+    /* min-width: 800px; */
+    height: 100svh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,7 +39,7 @@
     overflow: hidden; 
     background-size: cover;
     opacity: .25;
-    margin-bottom: var(--margin-xl);
+    /* margin-bottom: var(--margin-xl); */
     filter: blur(1px);
 }
 
@@ -49,6 +50,7 @@
     width: 100%;
     z-index: 10000;
     height: 100%;
+    /* background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 25%, rgb(0, 0, 0) 95%); */
     background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 25%, rgb(0, 0, 0) 95%);
     /* slightly darker maybe? */
     /* background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.486) 35%, rgb(0, 0, 0) 95%); */
@@ -112,108 +114,120 @@
 
 .div-1-img-1 {
     height: 300px;
-    background-image: url('../assets/img/pm/pm1.png');
+    background-image: url('./img/1.avif');
     background-size: cover;
     opacity: .5;
 }
 .div-1-img-2 {
     height: 300px;
-    background-image: url('../assets/img/pm/pm2.png');
+    background-image: url('./img/ws.jpg');
     background-size: cover;
     opacity: .5;
 }
 
 .div-1-img-3 {
     height: 300px;
-    background-image: url('../assets/img/pm/pm3.png');
+    background-image: url('./img/3.avif');
     background-size: cover;
     opacity: .5;
 }
 
 .div-1-img-4 {
     height: 500px;
-    background-image: url('../assets/img/pm/pm4.png');
+    background-image: url('./img/4.avif');
     background-size: cover;
     opacity: .5;
 }
 
 .div-2-img-1 {
     height: 300px;
-    background-image: url('../assets/img/charts/flow4.png');
+    background-image: url('./img/ws2.jpg');
+
     background-size: cover;
     opacity: .5;
 }
 .div-2-img-2 {
     height: 300px;
-    background-image: url('../assets/img/charts/flow5.png');
+    background-image: url('./img/3.avif');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-2-img-3 {
     height: 300px;
-    background-image: url('../assets/img/charts/flow1.png');
+    background-image: url('./img/2.avif');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-2-img-4 {
     height: 300px;
-    background-image: url('../assets/img/charts/flow3.png');
+    background-image: url('./img/ws5.jpg');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-3-img-1 {
     height: 300px;
-    background-image: url('../assets/img/charts/flow7.png');
+    background-image: url('./img/2.avif');
+
     background-size: cover;
     opacity: .5;
 }
 .div-3-img-2 {
     height: 300px;
-    background-image: url('../assets/img/charts/flow6.png');
+    background-image: url('./img/3.avif');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-3-img-3 {
     height: 300px;
-    background-image: url('../assets/img/charts/flow8.png');
+    background-image: url('./img/ws3.jpg');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-3-img-4 {
     height: 300px;
-    background-image: url('../assets/img/docs/doc1.png');
+    background-image: url('./img/4.avif');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-4-img-1 {
     height: 300px;
-    background-image: url('../assets/img/projects/dashboard1.png');
+    background-image: url('./img/4.avif');
+
     background-size: cover;
     opacity: .5;
 }
 .div-4-img-2 {
     height: 300px;
-    background-image: url('../assets/img/projects/sql1.png');
+    background-image: url('./img/ws5.jpeg');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-4-img-3 {
     height: 500px;
-    background-image: url('../assets/img/projects/dashboard4.png');
+    background-image: url('./img/3.avif');
+
     background-size: cover;
     opacity: .5;
 }
 
 .div-4-img-4 {
     height: 300px;
-    background-image: url('../assets/img/projects/sql3.png');
+    background-image: url('./img/2.avif');
+
     background-size: cover;
     opacity: .5;
 }
