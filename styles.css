@@ -1,29 +1,13 @@
-/* div scrolling */
-
-/* @keyframes scrollUp {
-    0% {
-        transform: translateY(0) skewY(-10deg);
-    }
-    50% {
-        transform: translateY(-75px) skewY(-10deg);
-    }
-    100% {
-        transform: translateY(0) skewY(-10deg);
-    }
-}
-
-@keyframes scrollDown {
-    0% {
-        transform: translateY(0) skewY(-10deg);
-    }
-    50% {
-        transform: translateY(75px) skewY(-10deg);
-    }
-    100% {
-        transform: translateY(0) skewY(-10deg);
-    }
+/* body {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 2px;
 } */
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* div scrolling anims */
 @keyframes scrollUp {
     0% {
         transform: translateY(0) rotateY(90deg);
@@ -74,7 +58,6 @@
     /* perspective: 1000px; */
 }
 
-/* might be this */
 .scrolling-div-container-radial-cover {
     position: absolute;
     top: 0;
@@ -88,13 +71,14 @@
     /* background-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.486) 35%, rgb(0, 0, 0) 95%); */
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     .scrolling-div-container {
         min-width: 100%;
+        /* height: 88svh; */
     }
 }
 
-@media screen and (max-width: 751px) {
+@media screen and (max-width: 768px) {
     .scrolling-div-container-radial-cover {
         display: none;
     }
@@ -106,7 +90,6 @@
     }
 }
 
-/* this could be split to 1-2-3, and given individual animation timers */
 .scrolling-div {
     width: 100%;
     height: auto;
@@ -181,14 +164,12 @@
 .div-2-img-1 {
     height: 300px;
     background-image: url('./img/ws2.jpg');
-
     background-size: cover;
     opacity: .5;
 }
 .div-2-img-2 {
     height: 300px;
     background-image: url('./img/3.avif');
-
     background-size: cover;
     opacity: .5;
 }
@@ -196,7 +177,6 @@
 .div-2-img-3 {
     height: 300px;
     background-image: url('./img/2.avif');
-
     background-size: cover;
     opacity: .5;
 }
@@ -204,7 +184,6 @@
 .div-2-img-4 {
     height: 300px;
     background-image: url('./img/ws5.jpg');
-
     background-size: cover;
     opacity: .5;
 }
@@ -212,14 +191,12 @@
 .div-3-img-1 {
     height: 300px;
     background-image: url('./img/2.avif');
-
     background-size: cover;
     opacity: .5;
 }
 .div-3-img-2 {
     height: 300px;
     background-image: url('./img/3.avif');
-
     background-size: cover;
     opacity: .5;
 }
@@ -227,7 +204,6 @@
 .div-3-img-3 {
     height: 300px;
     background-image: url('./img/ws3.jpg');
-
     background-size: cover;
     opacity: .5;
 }
@@ -235,7 +211,6 @@
 .div-3-img-4 {
     height: 300px;
     background-image: url('./img/4.avif');
-
     background-size: cover;
     opacity: .5;
 }
@@ -243,14 +218,12 @@
 .div-4-img-1 {
     height: 300px;
     background-image: url('./img/4.avif');
-
     background-size: cover;
     opacity: .5;
 }
 .div-4-img-2 {
     height: 300px;
     background-image: url('./img/ws5.jpeg');
-
     background-size: cover;
     opacity: .5;
 }
@@ -258,7 +231,6 @@
 .div-4-img-3 {
     height: 500px;
     background-image: url('./img/3.avif');
-
     background-size: cover;
     opacity: .5;
 }
@@ -266,9 +238,6 @@
 .div-4-img-4 {
     height: 300px;
     background-image: url('./img/2.avif');
-
     background-size: cover;
     opacity: .5;
 }
-
-/*  */
