@@ -1,6 +1,6 @@
 /* div scrolling */
 
-@keyframes scrollUp {
+/* @keyframes scrollUp {
     0% {
         transform: translateY(0) skewY(-10deg);
     }
@@ -22,6 +22,36 @@
     100% {
         transform: translateY(0) skewY(-10deg);
     }
+} */
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0) rotateY(90deg);
+        opacity: 0;
+    }
+    25% {
+        transform: translateY(-75px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(0) rotateY(90deg);
+        opacity: 0;
+    }
+    25% {
+        transform: translateY(75px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
 }
 
 .scrolling-div-container {
@@ -41,8 +71,10 @@
     opacity: .25;
     /* margin-bottom: var(--margin-xl); */
     filter: blur(1px);
+    /* perspective: 1000px; */
 }
 
+/* might be this */
 .scrolling-div-container-radial-cover {
     position: absolute;
     top: 0;
@@ -79,23 +111,28 @@
     width: 100%;
     height: auto;
     background-color: #e0e0e0;
-    transform: skewY(-10deg);
+    /* transform: skewY(-10deg); */
     position: relative;
     display: flex;
     flex-direction: column;
     filter: grayscale(25%) sepia(100%) hue-rotate(90deg);
 }
 
+/* opacities are .5 ................................................................................... */
 .div1 {
     background-color: rgba(24, 170, 192, 0.094);
     background-size: center;
     opacity: .5;
-    animation: scrollUp 46s ease-in-out infinite;
+    /* animation: scrollUp 46s ease-in-out infinite; */
+    animation: scrollUp 7s ease-in-out;
+    /* might worth a look */
+    /* animation: scrollUp 7s cubic-bezier(0.23, 1, 0.320, 1); */
 }
 
 .div2 {
     background-color: rgba(78, 205, 197, 0.094);
-    animation: scrollDown 77s ease-in-out infinite; 
+    /* animation: scrollDown 77s ease-in-out infinite;  */
+    animation: scrollDown 7s ease-in-out; 
     background-size: cover;
     opacity: .5;
 }
@@ -103,11 +140,13 @@
     background-color: rgba(26, 83, 92, 0.094);
     background-size: cover;
     opacity: .5;
-    animation: scrollUp 56s ease-in-out infinite;
+    /* animation: scrollUp 56s ease-in-out infinite; */
+    animation: scrollUp 7s ease-in-out ;
 }
 .div4 {
     background-color: rgba(0, 184, 147, 0.094);
-    animation: scrollDown 66s ease-in-out infinite; 
+    /* animation: scrollDown 66s ease-in-out infinite;  */
+    animation: scrollDown 7s ease-in-out ; 
     background-size: cover;
     opacity: .5;
 }
