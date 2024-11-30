@@ -32,18 +32,18 @@
 
     <!-- absolute divs -->
     <div class="scrolling-div-container"
-        hx-get="./divs.html" hx-trigger="load"
+        hx-get="./components/divs.html" hx-trigger="load"
     >
         <!-- get BG div -->
     </div>
 
     <header class="flex justify-between items-center py-6 w-2/3 z-10"
-        hx-get="./header.html" hx-trigger="load"
+        hx-get="./components/header.html" hx-trigger="load"
     >
         <!-- get header -->
     </header>
 
-    <section id="hero" class="h-svh w-full md:w-2/3 md:h-96 md:py-96 mt-24 flex flex-col justify-center items-center text-center border-2 border-slate-700">
+    <section id="hero" class="h-svh w-full md:w-2/3 md:h-72 md:py-72 mt-24 flex flex-col justify-center items-center text-center border-2 border-slate-700">
         <h2 class="text-4xl font-extrabold mb-4">Helping Your Business Grow</h2>
         <p class="text-lg mb-8">Tailored consulting solutions for your unique needs.</p>
         <button id="learn-more" class="px-6 py-3 bg-slate-600 hover:bg-slate-700 shadow-lg shadow-cyan-500/50 hover:shadow-indigo-500/50">Give us money</button>
@@ -51,26 +51,26 @@
 
     <section id="customers"
         class="p-12 bg-slate-700 bg-opacity-10 w-2/3 mb-24"
-        hx-get="./customers.html"
+        hx-get="./components/customers.html"
         hx-trigger="load" 
     >
         <!-- get customers -->
     </section>
 
     <section id="about" class="p-12 bg-gray-600 w-2/3 mb-24"
-        hx-get="./about.html" hx-trigger="load"
+        hx-get="./components/about.html" hx-trigger="load"
     >
         <!-- get about -->
     </section>
 
     <section id="services" class="p-12 bg-gray-800 w-2/3 mb-24"
-        hx-get="./services.html" hx-trigger="load"
+        hx-get="./components/services.html" hx-trigger="load"
     >
         <!-- get services -->
     </section>
 
     <section id="contact" class="p-12 bg-gray-500 w-2/3 mb-24"
-        hx-get="./contact.html" hx-trigger="load"
+        hx-get="./components/contact.html" hx-trigger="load"
     >
         <!-- get contact -->
     </section>
