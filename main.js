@@ -31,9 +31,9 @@ document.addEventListener('htmx:afterSettle', () => {
  // GSAP Loader Animation
  window.addEventListener('load', () => {
     // Loader fade out
-    // gsap.to("#loader", { opacity: 0, duration: 1, delay: 0.5, onComplete: () => {
-    //     document.getElementById("loader").style.display = "none";
-    // }});
+    gsap.to("#loader", { opacity: 0, duration: 1, delay: 0.5, onComplete: () => {
+        document.getElementById("loader").style.display = "none";
+    }});
 
     gsap.to("header", { opacity: 1, y: 0, duration: 1, delay: 1 });
     gsap.to("#hero", { opacity: 1, y: 0, duration: 1, delay: 1.5 });

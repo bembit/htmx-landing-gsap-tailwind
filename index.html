@@ -9,21 +9,63 @@
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> -->
-
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.2" defer></script>
+    <!-- Own -->
+    <script src="./main.js" defer></script>
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Trigger for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/df3e6f116a.js" crossorigin="anonymous"></script>
-    <!-- Own -->
-    <script src="./main.js" defer></script>
-    <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@1.9.2" defer></script>
+    <script src="https://kit.fontawesome.com/df3e6f116a.js" crossorigin="anonymous" defer></script>
     <!-- Lenis -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script> -->
+     <style>
+         .spinner {
+             width: 40px;
+             height: 40px;
+             position: relative;
+             margin: 100px auto;
+         }
+         
+         .double-bounce1, .double-bounce2 {
+             width: 100%;
+             height: 100%;
+             border-radius: 50%;
+             background-color: #ec1cec;
+             opacity: 0.6;
+             position: absolute;
+             top: 0;
+             left: 0;
+         
+             -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+             animation: sk-bounce 2.0s infinite ease-in-out;
+         }
+         
+         .double-bounce2 {
+             -webkit-animation-delay: -1.0s;
+             animation-delay: -1.0s;
+         }
+         
+         @-webkit-keyframes sk-bounce {
+             0%, 100% { -webkit-transform: scale(0.0) }
+             50% { -webkit-transform: scale(1.0) }
+         }
+         
+         @keyframes sk-bounce {
+             0%, 100% {
+                 transform: scale(0.0);
+                 -webkit-transform: scale(0.0);
+             } 50% {
+                 transform: scale(1.0);
+                 -webkit-transform: scale(1.0);
+             }
+         }
+     </style>
 </head>
 
     <!-- load anim bug -->
@@ -36,12 +78,18 @@
         hx-get="./components/modal.html" hx-trigger="load"
     >
     </div>
+    <!-- figure this out -->
     <!-- loader -->
-    <!-- <div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+    <div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
         <div class="text-center">
-            <div class="loader-text text-4xl font-extrabold text-white">Loading...</div>
+            <!-- <div class="loader-text text-4xl font-extrabold text-white">Loading...</div> -->
+            <!-- spinner -->
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- absolute divs -->
     <div class="scrolling-div-container"
