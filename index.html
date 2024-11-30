@@ -14,33 +14,33 @@
     <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.9.2"></script>
 </head>
+
+    <!-- load anim bug -->
+    <!-- it's the intersection trigger by htmx -->
+    <!-- something with hx-intersect  -->
+    <!-- gsap-scrolltrigger-htmx -->
+    <!-- main div animations finished -->
+
 <body class="bg-gray-900 text-white w-full flex flex-col items-center">
 
-    <!-- Loader -->
+    <!-- loader -->
     <div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
         <div class="text-center">
             <div class="loader-text text-4xl font-extrabold text-white">Loading...</div>
         </div>
     </div>
+
     <!-- absolute divs -->
     <div class="scrolling-div-container"
         hx-get="./divs.html" hx-trigger="load"
     >
-        
+        <!-- get BG div -->
     </div>
 
-    <header class="flex justify-between items-center py-6 w-2/3 z-10">
-        <div>
-            <h1 class="text-2xl font-bold">CringeAF Consulting</h1>
-            <!-- <p>every single corporate website</p> -->
-        </div>
-        <nav>
-            <ul class="flex space-x-6">
-                <li><a href="#services" class="hover:underline">Services</a></li>
-                <li><a href="#about" class="hover:underline">About</a></li>
-                <li><a href="#contact" class="hover:underline">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="flex justify-between items-center py-6 w-2/3 z-10"
+        hx-get="./header.html" hx-trigger="load"
+    >
+        <!-- get header -->
     </header>
 
     <section id="hero" class="h-svh w-full md:w-2/3 md:h-96 md:py-96 mt-24 flex flex-col justify-center items-center text-center border-2 border-slate-700">
@@ -50,53 +50,29 @@
     </section>
 
     <section id="customers"
-        class="p-12 bg-gray-600 w-2/3 mb-24"
+        class="p-12 bg-slate-700 bg-opacity-10 w-2/3 mb-24"
         hx-get="./customers.html"
-        hx-trigger="intersect" 
+        hx-trigger="load" 
     >
-        <!-- I'm a prefetch development god -->
+        <!-- get customers -->
     </section>
 
     <section id="about" class="p-12 bg-gray-600 w-2/3 mb-24"
-        hx-get="./about.html" hx-trigger="intersect"
+        hx-get="./about.html" hx-trigger="load"
     >
-        
+        <!-- get about -->
     </section>
 
-    <section id="services" class="p-12 bg-gray-800 w-2/3 mb-24">
-        <h2 class="text-3xl font-bold mb-6">Our Services</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-gray-700 ">
-                <h3 class="text-xl font-semibold mb-4">Service 1</h3>
-                <p>Detailed description of the first service.</p>
-            </div>
-            <div class="p-6 bg-gray-700 ">
-                <h3 class="text-xl font-semibold mb-4">Service 2</h3>
-                <p>Detailed description of the second service.</p>
-            </div>
-            <div class="p-6 bg-gray-700 ">
-                <h3 class="text-xl font-semibold mb-4">Service 3</h3>
-                <p>Detailed description of the third service.</p>
-            </div>
-        </div>
+    <section id="services" class="p-12 bg-gray-800 w-2/3 mb-24"
+        hx-get="./services.html" hx-trigger="load"
+    >
+        <!-- get services -->
     </section>
 
-    <section id="contact" class="p-12 bg-gray-500 w-2/3 mb-24">
-        <h2 class="text-3xl font-bold mb-6">Contact</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-gray-700 ">
-                <h3 class="text-xl font-semibold mb-4">Service 1</h3>
-                <p>Detailed description of the first service.</p>
-            </div>
-            <div class="p-6 bg-gray-700 ">
-                <h3 class="text-xl font-semibold mb-4">Service 2</h3>
-                <p>Detailed description of the second service.</p>
-            </div>
-            <div class="p-6 bg-gray-700 ">
-                <h3 class="text-xl font-semibold mb-4">Service 3</h3>
-                <p>Detailed description of the third service.</p>
-            </div>
-        </div>
+    <section id="contact" class="p-12 bg-gray-500 w-2/3 mb-24"
+        hx-get="./contact.html" hx-trigger="load"
+    >
+        <!-- get contact -->
     </section>
 
     <footer class="text-center p-6 bg-gray-800 w-full">
@@ -119,28 +95,67 @@
             // gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
             // gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
             gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1.5 });
+            // #customers section
+            // gsap.from("#customers", { opacity: 0, y: 50, duration: 1, delay: 3, onComplete: () => {
+            //     gsap.from("#customers img", {
+            //         opacity: 0,
+            //         x: 50,
+            //         duration: 2,
+            //         stagger: 0.1, // Stagger between images
+            //     });
+            // }});
+            // ahhhha
+            const tl = gsap.timeline({ delay: 3 }); // Start after 3-second delay
+
+            tl.from("#customers", { 
+                opacity: 0, 
+                y: 50, 
+                duration: 1 
+            })  
+            .from("#customers img", { 
+                opacity: 0, 
+                x: 250, 
+                duration: 2, 
+                stagger: 0.1 
+            }, "-=1"); // Overlap the start of image animation by 1 second
+
         });
         // GSAP animations demo
         // gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
         // gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
         // gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1 });
         // handle all sections
-        const sectionsList = ["#customers", "#about", "#services", "#contact"];
+        const sectionsList = ["#about", "#services", "#contact"];
         function animateSection(section) {
             gsap.from(section, {
-            scrollTrigger: {
-                trigger: section,
-                start: "top 80%", // !!! Trigger when top of #services reaches 80% of viewport
-                toggleActions: "play none none none" // only once
-            },
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            stagger: 0.3 // !! Stagger animation between each element
-        });
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%", // !!! Trigger when top of #services reaches 80% of viewport
+                    toggleActions: "play none none none" // only once
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+            });
         }
 
         sectionsList.forEach(animateSection);
+
+        // animate all images in the sections
+        // const imagesList = ["#customers img", "#about img", "#services img", "#contact img"];
+        // function animateImages(image) {
+        //     gsap.from(image, {
+        //         opacity: 0,
+        //         x: 50,
+        //         delay: 0.5,
+        //         duration: 2,
+        //         stagger: 0.3 // !! Stagger animation between each element
+        //     });
+        // }
+
+        // gsap.from("#customers img", { opacity: 0, x: 50, duration: 2, delay: 0.5 });
+
+        // imagesList.forEach(animateImages);
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('learn-more').addEventListener('click', () => {

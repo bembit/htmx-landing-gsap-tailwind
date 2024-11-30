@@ -29,13 +29,13 @@
         transform: translateY(0) rotateY(90deg);
         opacity: 0;
     }
-    50% {
+    25% {
         transform: translateY(-75px);
         opacity: 0.5;
     }
     100% {
         transform: translateY(0);
-        opacity: 1;
+        opacity: 0.5;
     }
 }
 
@@ -44,13 +44,13 @@
         transform: translateY(0) rotateY(90deg);
         opacity: 0;
     }
-    50% {
+    25% {
         transform: translateY(75px);
         opacity: 0.5;
     }
     100% {
         transform: translateY(0);
-        opacity: 1;
+        opacity: 0.5;
     }
 }
 
@@ -118,18 +118,21 @@
     filter: grayscale(25%) sepia(100%) hue-rotate(90deg);
 }
 
+/* opacities are .5 ................................................................................... */
 .div1 {
     background-color: rgba(24, 170, 192, 0.094);
     background-size: center;
     opacity: .5;
     /* animation: scrollUp 46s ease-in-out infinite; */
-    animation: scrollUp 12s ease-in-out;
+    animation: scrollUp 7s ease-in-out;
+    /* might worth a look */
+    /* animation: scrollUp 7s cubic-bezier(0.23, 1, 0.320, 1); */
 }
 
 .div2 {
     background-color: rgba(78, 205, 197, 0.094);
     /* animation: scrollDown 77s ease-in-out infinite;  */
-    animation: scrollDown 12s ease-in-out; 
+    animation: scrollDown 7s ease-in-out; 
     background-size: cover;
     opacity: .5;
 }
@@ -138,12 +141,12 @@
     background-size: cover;
     opacity: .5;
     /* animation: scrollUp 56s ease-in-out infinite; */
-    animation: scrollUp 12s ease-in-out ;
+    animation: scrollUp 7s ease-in-out ;
 }
 .div4 {
     background-color: rgba(0, 184, 147, 0.094);
     /* animation: scrollDown 66s ease-in-out infinite;  */
-    animation: scrollDown 12s ease-in-out ; 
+    animation: scrollDown 7s ease-in-out ; 
     background-size: cover;
     opacity: .5;
 }
