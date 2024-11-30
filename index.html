@@ -5,30 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelance Consulting</title>
     <link rel="stylesheet" href="./styles.css">
+    <!-- Bebas Neue -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> -->
+
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!-- Trigger for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/df3e6f116a.js" crossorigin="anonymous"></script>
+    <!-- Own -->
+    <script src="./main.js" defer></script>
     <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.2" defer></script>
+    <!-- Lenis -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
 </head>
 
     <!-- load anim bug -->
     <!-- it's the intersection trigger by htmx -->
-    <!-- something with hx-intersect  -->
-    <!-- gsap-scrolltrigger-htmx -->
-    <!-- main div animations finished -->
 
 <body class="bg-gray-900 text-white w-full flex flex-col items-center">
 
+    <!-- modal -->
+    <div id="modal-overlay" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden z-10"
+        hx-get="./components/modal.html" hx-trigger="load"
+    >
+    </div>
     <!-- loader -->
-    <div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+    <!-- <div id="loader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
         <div class="text-center">
             <div class="loader-text text-4xl font-extrabold text-white">Loading...</div>
         </div>
-    </div>
+    </div> -->
 
     <!-- absolute divs -->
     <div class="scrolling-div-container"
@@ -37,132 +50,55 @@
         <!-- get BG div -->
     </div>
 
-    <header class="flex justify-between items-center py-6 w-2/3 z-10"
+    <header class="flex flex-col md:flex-row justify-between items-center py-6 w-full md:w-2/3 z-10"
         hx-get="./components/header.html" hx-trigger="load"
     >
         <!-- get header -->
     </header>
 
-    <section id="hero" class="h-svh w-full md:w-2/3 md:h-72 md:py-72 mt-24 flex flex-col justify-center items-center text-center border-2 border-slate-700">
-        <h2 class="text-4xl font-extrabold mb-4">Helping Your Business Grow</h2>
+    <section id="hero" class="py-44 w-full md:w-2/3 md:h-72 md:py-72 md:mt-24 flex flex-col justify-center items-center text-center bg-slate-700 bg-opacity-10 mb-2">
+        <!-- <h2 class="text-4xl font-extrabold mb-4">Helping Your Business Grow</h2> -->
+        <h2 class="text-5xl font-extrabold mb-4">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+                Helping Your Business Grow
+            </span>
+        </h2>
         <p class="text-lg mb-8">Tailored consulting solutions for your unique needs.</p>
-        <button id="learn-more" class="px-6 py-3 bg-slate-600 hover:bg-slate-700 shadow-lg shadow-cyan-500/50 hover:shadow-indigo-500/50">Give us money</button>
+        <div>
+            <button id="show-modal-btn" class="px-6 py-3 bg-slate-600 hover:bg-slate-700 shadow-lg shadow-cyan-500/50 hover:shadow-indigo-500/50">Give us money</button>
+            <button id="show-modal-btn" class="px-6 py-3 bg-slate-600 hover:bg-slate-700 shadow-lg shadow-cyan-500/50 hover:shadow-indigo-500/50">Our mission</button>
+        </div>
     </section>
 
     <section id="customers"
-        class="p-12 bg-slate-700 bg-opacity-10 w-2/3 mb-24"
+        class="p-2 md:p-12 bg-slate-700 bg-opacity-10 w-full md:w-2/3 mb-24"
         hx-get="./components/customers.html"
         hx-trigger="load" 
     >
         <!-- get customers -->
     </section>
 
-    <section id="about" class="p-12 bg-gray-600 w-2/3 mb-24"
+    <section id="about" class="p-2 md:p-12 bg-gray-600 w-full md:w-2/3 mb-24"
         hx-get="./components/about.html" hx-trigger="load"
     >
         <!-- get about -->
     </section>
 
-    <section id="services" class="p-12 bg-gray-800 w-2/3 mb-24"
+    <section id="services" class="p-2 md:p-12 bg-gray-800 w-full md:w-2/3 mb-24"
         hx-get="./components/services.html" hx-trigger="load"
     >
         <!-- get services -->
     </section>
 
-    <section id="contact" class="p-12 bg-gray-500 w-2/3 mb-24"
+    <section id="contact" class="p-2 md:p-12 bg-gray-500 w-full md:w-2/3 mb-24"
         hx-get="./components/contact.html" hx-trigger="load"
     >
         <!-- get contact -->
     </section>
 
-    <footer class="text-center p-6 bg-gray-800 w-full">
-        <p>&copy; 2024 Freelance Consulting. All rights reserved. Writing Tailwind sucks.</p>
+    <footer class="text-center p-2 md:p-12 bg-gray-800 w-full">
+        <p>&copy; 2024 CringedAF consulting. All rights reserved. Learning Tailwind sucks.</p>
     </footer>
 
-    <script>
-        // GSAP Loader Animation
-        window.addEventListener('load', () => {
-            // Loader fade out
-            gsap.to("#loader", { opacity: 0, duration: 1, delay: 0.5, onComplete: () => {
-                document.getElementById("loader").style.display = "none";
-            }});
-
-            // Animate header and hero content after loader disappears
-            gsap.to("header", { opacity: 1, y: 0, duration: 1, delay: 1 });
-            gsap.to("#hero", { opacity: 1, y: 0, duration: 1, delay: 1.5 });
-            gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1, delay: 1.5 });
-            gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 1 });
-            // gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
-            // gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
-            gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1.5 });
-            // #customers section
-            // gsap.from("#customers", { opacity: 0, y: 50, duration: 1, delay: 3, onComplete: () => {
-            //     gsap.from("#customers img", {
-            //         opacity: 0,
-            //         x: 50,
-            //         duration: 2,
-            //         stagger: 0.1, // Stagger between images
-            //     });
-            // }});
-            // ahhhha
-            const tl = gsap.timeline({ delay: 3 }); // Start after 3-second delay
-
-            tl.from("#customers", { 
-                opacity: 0, 
-                y: 50, 
-                duration: 1 
-            })  
-            .from("#customers img", { 
-                opacity: 0, 
-                x: 250, 
-                duration: 2, 
-                stagger: 0.1 
-            }, "-=1"); // Overlap the start of image animation by 1 second
-
-        });
-        // GSAP animations demo
-        // gsap.from("#hero h2", { opacity: 0, y: -50, duration: 1 });
-        // gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
-        // gsap.from("#learn-more", { opacity: 0, scale: 0.8, duration: 1, delay: 1 });
-        // handle all sections
-        const sectionsList = ["#about", "#services", "#contact"];
-        function animateSection(section) {
-            gsap.from(section, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top 80%", // !!! Trigger when top of #services reaches 80% of viewport
-                    toggleActions: "play none none none" // only once
-                },
-                opacity: 0,
-                y: 50,
-                duration: 1,
-            });
-        }
-
-        sectionsList.forEach(animateSection);
-
-        // animate all images in the sections
-        // const imagesList = ["#customers img", "#about img", "#services img", "#contact img"];
-        // function animateImages(image) {
-        //     gsap.from(image, {
-        //         opacity: 0,
-        //         x: 50,
-        //         delay: 0.5,
-        //         duration: 2,
-        //         stagger: 0.3 // !! Stagger animation between each element
-        //     });
-        // }
-
-        // gsap.from("#customers img", { opacity: 0, x: 50, duration: 2, delay: 0.5 });
-
-        // imagesList.forEach(animateImages);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('learn-more').addEventListener('click', () => {
-                console.log('clicked');
-            });
-        });
-
-    </script>
 </body>
 </html>
