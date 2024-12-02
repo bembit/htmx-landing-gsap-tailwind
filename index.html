@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> -->
     
+    <!-- This is fun to manage all these CDN dependencies -->
     <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@1.9.2" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
     <!-- Own -->
     <script src="./main.js" defer></script>
     <!-- GSAP for animations -->
@@ -22,6 +23,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/df3e6f116a.js" crossorigin="anonymous" defer></script>
+    <!-- Typer -->
+    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+    
     <!-- Lenis -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script> -->
      <style>
@@ -108,9 +112,27 @@
         <!-- <h2 class="text-4xl font-extrabold mb-4">Helping Your Business Grow</h2> -->
         <h2 class="text-5xl font-extrabold mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                Helping Your Business Grow
+                Helping Your Business 
+                Grow
+                <!-- <br> -->
+                <!-- <div class="inline-flex border-2 border-violet-500 border-opacity-10 rounded-md py-2"> -->
+                <!-- <div class="inline-flex">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 typer" id="typerStuff" data-words="Grow.,Scale.,Transform." data-delay="50" data-deleteDelay="1750" data-colors="#ffffff" data-cursor-display="."></span>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 cursor" data-owner="typerStuff"></span>
+                </div> -->
             </span>
         </h2>
+        <!-- find basis. -->
+        <!-- <div class="flex flex-col">
+            <h2 class="text-5xl font-extrabold mb-4">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 typer" id="main" data-words="Operations,Project,Business,Data" data-delay="50" data-deleteDelay="750" data-colors="#ffffff" data-cursor-display="?"></span> 
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 cursor" data-owner="main"></span>
+            </h2>
+            <h2 class="text-5xl font-extrabold mb-4">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 typer" id="main" data-words="Manager?,Analyst?,Developer?,Designer?" data-delay="75" data-deleteDelay="1000" data-colors="#ffffff" data-cursor-display="?"></span> 
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 cursor" data-owner="main"></span>
+            </h2>
+        </div> -->
         <p class="text-lg mb-8">Tailored consulting solutions for your unique needs.</p>
         <div>
             <button id="show-modal-btn" class="px-6 py-3 bg-slate-600 hover:bg-slate-700 shadow-lg shadow-cyan-500/50 hover:shadow-indigo-500/50">Give us money</button>
@@ -119,7 +141,7 @@
     </section>
 
     <section id="customers"
-        class="p-2 md:p-12 bg-slate-700 bg-opacity-10 w-full md:w-2/3 mb-24"
+        class="p-2 md:p-12 bg-slate-700 bg-opacity-10 w-full md:w-2/3 mb-24 overflow-hidden"
         hx-get="./components/customers.html"
         hx-trigger="load" 
     >
